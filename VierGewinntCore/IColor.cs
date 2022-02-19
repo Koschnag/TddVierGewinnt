@@ -1,6 +1,6 @@
 ﻿namespace VierGewinntCore
 {
-    public interface ILine:IList<ICell>
+    public interface IColor
     {
     }
 }

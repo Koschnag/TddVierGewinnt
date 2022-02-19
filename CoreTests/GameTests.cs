@@ -10,8 +10,8 @@ namespace CoreTests
     {
         static List<IPlayer> players = new List<IPlayer>
         {               
-            new Player("Alice"),
-            new Player("Bob")
+            new Player("Alice",0),
+            new Player("Bob",1)
         };
         Game game = new Game(players, new BoardMock());
 

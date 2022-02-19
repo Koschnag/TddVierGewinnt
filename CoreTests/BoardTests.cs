@@ -14,27 +14,27 @@ namespace CoreTests
         public void ChipDropTest()
         {
             Board.DropChip(0);
-            Board.Columns.Count;
+            throw new System.NotImplementedException();
         }
         [TestMethod]
         public void CheckWinVertical()
         {
-
+            throw new System.NotImplementedException();
         }
         [TestMethod]
         public void CheckWinHorizontal()
         {
-
+            throw new System.NotImplementedException();
         }
         [TestMethod]
         public void CheckWinDiagonalLeft()
         {
-
+            throw new System.NotImplementedException();
         }
         [TestMethod]
         public void CheckWinDiagonalRight()
         {
-
+            throw new System.NotImplementedException();
         }
 
     }
