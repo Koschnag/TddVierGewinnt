@@ -24,6 +24,5 @@ namespace CoreTests
             cell.PlaceChip(chip);
             Assert.AreEqual(cell.Chip.PlayerID,2);
         }
-
     }
 }

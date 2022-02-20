@@ -1,7 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using CoreTests.Dummy;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using VierGewinntCore;
-using CoreTests.Dummy;
+using VierGewinntCore.Factory;
 
 namespace CoreTests
 {
@@ -11,7 +12,31 @@ namespace CoreTests
         [TestMethod]
         public void CreateLine()
         {
-            throw new System.NotImplementedException();
+            LineFactory lineFactory = new DropableLineFactory();
+            var testTarget = lineFactory.Create(7);
+            Assert.AreEqual(testTarget.Cells.Count, 7);
+        }
+
+        [TestMethod]
+        public void DropChipIntoColumn()
+        {
+            LineFactory lineFactory = new DropableLineFactory();
+            var testTarget = (DropableLine)lineFactory.Create(7);
+            testTarget.DropChip(new ChipDummy());
+            Assert.IsNotNull(testTarget.Cells[0].Chip);
+        }
+
+        [TestMethod]
+        public void CheckIfColumnIsFull()
+        {
+
+            LineFactory lineFactory = new DropableLineFactory();
+            var testTarget = (DropableLine)lineFactory.Create(7);
+            for (int i = 0; i < 7; i++)
+            {
+                testTarget.DropChip(new ChipDummy());
+            }
+            Assert.ThrowsException<InvalidOperationException>(() => testTarget.DropChip(new ChipDummy()));
         }
     }
 }

@@ -5,6 +5,7 @@
         int X { get; set; }
         int Y { get; set; } 
         IChip Chip { get;}
+        bool IsFilled { get;}
         void PlaceChip(IChip chip);
     }
 
@@ -15,8 +16,12 @@
         IChip _chip;
         public IChip Chip { get { return _chip; } }
 
+        bool _isFilled;
+        public bool IsFilled { get { return _isFilled; } }
+
         public void PlaceChip(IChip chip) {
             _chip = chip;
+            _isFilled= true;
         }
     }
 
