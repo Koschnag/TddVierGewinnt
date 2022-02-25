@@ -13,19 +13,19 @@ namespace CoreTests
             new Player("Alice",0),
             new Player("Bob",1)
         };
-        Game game = new Game(players, new BoardMock());
+        Game testTarget = new Game(players, new BoardMock());
 
         [TestMethod]
         public void CreateMultiplayerGame()
         {
-            Assert.AreEqual(game.RoundCounter, 1);
-            Assert.AreEqual(game.TurnNumber, 1);
+            Assert.AreEqual(testTarget.RoundCounter, 1);
+            Assert.AreEqual(testTarget.TurnNumber, 1);
         }
 
         [TestMethod]
         public void CheckPlayerNames()
         {
-            var testTarget = game.Players;
+            var testTarget = this.testTarget.Players;
             Assert.AreEqual(testTarget[0].Name,"Alice");
             Assert.AreEqual(testTarget[1].Name, "Bob");
         }
@@ -33,8 +33,9 @@ namespace CoreTests
         [TestMethod]
         public void CheckTurnSchedule()
         {
-            game.TakeTurn(0);
-            Assert.AreEqual(game.TurnNumber, 2);
+            IChip chip = new ChipDummy();
+            testTarget.TakeTurn(0, chip);
+            Assert.AreEqual(testTarget.TurnNumber, 2);
         }
     }
 }

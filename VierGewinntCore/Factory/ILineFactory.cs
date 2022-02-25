@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace VierGewinntCore.Factory
 {
-    public interface LineFactory
+    public interface ILineFactory
     {
         ILine Create(int length);
     }
 
-    public class DropableLineFactory : LineFactory
+    public class DropableLineFactory : ILineFactory
     {
         public ILine Create(int length)
         {
@@ -19,7 +19,7 @@ namespace VierGewinntCore.Factory
 
             for(int i=0; i<length; i++)
             {
-                cells.Add(new Cell());
+                cells.Add(new Cell(i));
             }
 
             ILine line = new DropableLine(cells);

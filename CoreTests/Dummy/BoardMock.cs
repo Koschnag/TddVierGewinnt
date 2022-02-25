@@ -11,9 +11,15 @@ namespace CoreTests.Dummy
     {
         public IList<ILine> Columns { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void DropChip(int colNumber)
+
+        public void DropChip(int colNumber, IChip chip)
         {
             
+        }
+
+        public bool IsConnected(IPlayer player, int connectionLength)
+        {
+            throw new NotImplementedException();
         }
     }
 }

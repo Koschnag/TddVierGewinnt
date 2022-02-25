@@ -26,16 +26,16 @@
             TurnNumber = 1;
         }
 
-        public void TakeTurn(int colNumber)
+        public void TakeTurn(int colNumber, IChip chip)
         {
-            Board.DropChip(colNumber);
+            Board.DropChip(colNumber, chip);
             TurnNumber++;
         }
     }
 
     public interface IGame
     {
-        void TakeTurn(int colNumber);
+        void TakeTurn(int colNumber, IChip chip);
         IList<IPlayer> Players { get; }
         IPlayer CurrentPlayer { get; }
     }

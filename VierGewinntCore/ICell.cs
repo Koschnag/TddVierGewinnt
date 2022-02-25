@@ -17,6 +17,13 @@
         public IChip Chip { get { return _chip; } }
 
         bool _isFilled;
+
+        public Cell(int y)
+        {
+            Y = y;
+            _isFilled = false;
+        }
+
         public bool IsFilled { get { return _isFilled; } }
 
         public void PlaceChip(IChip chip) {

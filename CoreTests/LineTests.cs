@@ -12,7 +12,7 @@ namespace CoreTests
         [TestMethod]
         public void CreateLine()
         {
-            LineFactory lineFactory = new DropableLineFactory();
+            ILineFactory lineFactory = new DropableLineFactory();
             var testTarget = lineFactory.Create(7);
             Assert.AreEqual(testTarget.Cells.Count, 7);
         }
@@ -20,7 +20,7 @@ namespace CoreTests
         [TestMethod]
         public void DropChipIntoColumn()
         {
-            LineFactory lineFactory = new DropableLineFactory();
+            ILineFactory lineFactory = new DropableLineFactory();
             var testTarget = (DropableLine)lineFactory.Create(7);
             testTarget.DropChip(new ChipDummy());
             Assert.IsNotNull(testTarget.Cells[0].Chip);
@@ -30,7 +30,7 @@ namespace CoreTests
         public void CheckIfColumnIsFull()
         {
 
-            LineFactory lineFactory = new DropableLineFactory();
+            ILineFactory lineFactory = new DropableLineFactory();
             var testTarget = (DropableLine)lineFactory.Create(7);
             for (int i = 0; i < 7; i++)
             {
