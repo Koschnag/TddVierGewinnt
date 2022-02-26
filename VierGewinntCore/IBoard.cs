@@ -3,6 +3,7 @@
     public interface IBoard
     {
         IList<ILine> Columns { get; set; }
+        int numRows { get; set; }
         void DropChip(int colNumber, IChip chip);
         bool IsConnected(IPlayer player, int connectionLength);
     }
@@ -15,9 +16,10 @@
         }
 
         public IList<ILine> Columns { get; set; }
-
+        public int numRows { get; set; }
         public bool IsConnected(IPlayer player, int connectionLength)
         {
+            //Vertical
             foreach (var i in Columns)
             {
                 int tempLength = 0;
@@ -40,6 +42,24 @@
                     }
                 }
             }
+
+            //Horizontal
+            for (int i = 0; i < numRows; i++)
+            {
+                var tempLength = 0;
+                foreach (var j in Columns)
+                {
+                    if (j.Cells[i].IsFilled)
+                    {
+                        if (j.Cells[i].Chip.PlayerID == player.PlayerID)
+                            tempLength++;
+                    }
+                    if (tempLength == connectionLength)
+                        return true;
+                }
+            }
+
+
             return false;
         }
 

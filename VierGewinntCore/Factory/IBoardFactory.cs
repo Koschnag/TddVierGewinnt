@@ -15,6 +15,7 @@
                 columns.Add(lineFactory.Create(colLength));
             }
             IBoard Board = new Board(columns);
+            Board.numRows=colLength;
             return Board;
         }
     }

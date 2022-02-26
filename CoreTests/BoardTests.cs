@@ -50,8 +50,18 @@ namespace CoreTests
         [TestMethod]
         public void CheckWinHorizontal()
         {
-            throw new System.NotImplementedException();
+            ILineFactory lineFactory = new DropableLineFactory();
+            IBoardFactory boardFactory = new BoardFactory();
+            testTarget = boardFactory.Create(lineFactory, 7, 6);
+            IChip chip = new ChipDummy();
+            IPlayer player = new PlayerDummy();
+            testTarget.DropChip(0, chip);
+            testTarget.DropChip(1, chip);
+            testTarget.DropChip(2, chip);
+            testTarget.DropChip(3, chip);
+            Assert.AreEqual(true, testTarget.IsConnected(player, 4));
         }
+
         [TestMethod]
         public void CheckWinDiagonalLeft()
         {

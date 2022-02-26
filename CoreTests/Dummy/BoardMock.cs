@@ -10,7 +10,7 @@ namespace CoreTests.Dummy
     public class BoardMock : IBoard
     {
         public IList<ILine> Columns { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public int numRows { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void DropChip(int colNumber, IChip chip)
         {
